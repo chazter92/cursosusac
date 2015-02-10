@@ -7,7 +7,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-
 <?php 	
 	require_once 'config.php';
 	require_once 'conexion.php';
@@ -16,9 +15,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	
 	if(isset($_GET['id'])){
 		$id_curso = trim($_GET['id']);
-	$cursos=mysql_query("SELECT * FROM CURSO WHERE codigo = ".$id_curso,$conexion) or
-	  die("Problemas en el select:".mysql_error());
-	  
+		$cursos=mysql_query("SELECT * FROM CURSO WHERE codigo = ".$id_curso,$conexion) or
+		  die("Problemas en el select:".mysql_error());
+		  
 	  if($curso=mysql_fetch_array($cursos)){
 		  $titulo = $curso['nombre'];		  
 	  }else{
@@ -27,9 +26,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	}else{
 		  $titulo = "CURSAC | Pre y post";
 	}
-?>;
-
-
+?>
 <title><?php echo $titulo;?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -50,18 +47,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body>
 <?php include_once('header.php');?>
 <div class="main_bg">
-             <div class="wrap">
-		     <div class="wrapper">
-             <div class="main1">
-	             <div class="grid_1_of_2 images_1_of_2">
-
-<div id="chart" class="orgChart"></div>
-	
-	    
-			
-            <?php if(isset($_GET['id'])):?>
-            
-            <ul id="org" style="display:none">
+<div class="wrap">
+<div class="wrapper">
+	<div class="main1">
+     <?php if(isset($_GET['id'])):?>
+     		<div class="grid_1_of_2 images_1_of_2">
+				<h2 class="style"><?php echo $curso['nombre'];?></h2>
+				<div id="chart" class="orgChart"></div>
+                <ul id="org" style="display:none">
             <li>
               <?php echo $curso['nombre'].'<p>Código: '.$curso['codigo'].'<br>Créditos: '.$curso['creditos'].'</p>';  
              
@@ -109,11 +102,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						}
 						
 						
-             else:?>
-             
+             ?> 
+            
+			</div>
+			
+			<div class="clear"></div>
+    
+    		<?php else:?>
+    
+			<div class="grid_1_of_2 images_1_of_2">
 				<h2 class="style">Cursos pre y post requisito</h2>
 				<p class="para top">Muchas veces como estudiantes queremos obtener información sobre los cursos que llevamos y los cursos que le siguen a este, pero es bastante complicado tomar un folleto con el pensum de la carrera y comenzar a buscar uno por uno los códigos diminutos de cada curso ¿Por qué no hacerlo más fácil? Nosotros te ayudaremos ¡Que la magía comience! </p>
-                <form action="prepost.php" method=GET>
+				<form action="prepost.php" method=GET>
                 	<br>Código:
                     <input type="text" name="id">
                     <br>
@@ -121,19 +121,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<input type="submit" value="Do it!" class="btn btn_s">
 					</div>
                 </form>
-				<div class="grid_1_of_2 images_1_of_2 img_style">
+			</div>
+			<div class="grid_1_of_2 images_1_of_2 img_style">
 				<img src="IMG/pic3.jpg" alt="">
 			</div>
-                
-            <?php endif?>
-			</div>
-                			
 			<div class="clear"></div>
+            <?php endif?>
 	</div>
 </div>
 </div>
 </div>
-
 <?php include_once ('footer.php');?>
 </body>
 </html>
