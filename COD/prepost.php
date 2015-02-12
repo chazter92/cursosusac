@@ -56,7 +56,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div id="chart" class="orgChart"></div>
                 <ul id="org" style="display:none">
             <li>
-              <?php echo $curso['nombre'].'<p>Código: '.$curso['codigo'].'<br>Créditos: '.$curso['creditos'].'</p>';  
+              <?php echo $curso['nombre'].' <p> Código: '.$curso['codigo'].'<br>Créditos: '.$curso['creditos'].'</p>';  
              
             	$cursos_post=mysql_query("SELECT C.* FROM CURSO C JOIN CURSO_PRE_POST P ON C.codigo = P.hijo WHERE P.padre = ".$id_curso,$conexion) or
 	  die("Problemas en el select:".mysql_error());
