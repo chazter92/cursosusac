@@ -16,6 +16,7 @@ public class DboCurso {
     private String nombre;
     private int creditos;
     private int obligatorio;
+    private int HOLA;
 
     public DboCurso(int codigo, String nombre, int creditos, int obligatorio) {
         this.codigo = codigo;
