@@ -9,6 +9,8 @@ package cursac.datos;
  *
  * @author Chaz
  */
+
+///asdfasdf
 public class DboCurso {
     private int codigo;
     private String nombre;
