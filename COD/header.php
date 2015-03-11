@@ -12,11 +12,11 @@ echo '<div class="wrap">
 <div class="header_right">
 	<div class="cssmenu">
 		<ul>
-		  	<li class="'; if($first_part=="index.php" || $first_part==""){echo "active"; }else {echo "noactive";} echo'"><a href="index.php"><span>Home</span></a></li>
-			<li class="'; if($first_part=="prepost.php" || $first_part==""){echo "active"; }else {echo "noactive";} echo'"><a href="prepost.php"><span>Pre y post</span></a></li>
-			<li class="'; if($first_part=="staff.php" || $first_part==""){echo "active"; }else {echo "noactive";} echo'"><a href="staff.php"><span>Staff</span></a></li>
-			<li class="'; if($first_part=="service.php" || $first_part==""){echo "active"; }else {echo "has-sub";} echo'"><a href="service.php"><span>Services</span></a></li>
-			<li "'; if($first_part=="contact.php" || $first_part==""){echo "active"; }else {echo "last";} echo'"><a href="contact.php"><span>Contact</span></a></li>
+		  	<li class="active"><a href="index.html"><span>Home</span></a></li>
+			<li><a href="prepost.html"><span>Pre y post</span></a></li>
+			<li><a href="#"><span>Horarios</span></a></li>
+			<li><a href="#"><span>Pensum</span></a></li>
+			<li><a href="#"><span>Contacto</span></a></li>
 			<div class="clear"></div>
 		 </ul>
 	</div>

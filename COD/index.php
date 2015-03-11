@@ -35,7 +35,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</script>
 </head>
 <body>
-	<?php include_once('header.php');?>
+	<div class="wrap">
+		<div class="wrapper">
+		<div class="logo">
+			<a href="index.html"><h1>CURSAC</h1></a>
+		</div>
+		<div class="header_right">
+			<div class="cssmenu">
+				<ul>
+					<li class="active"><a href="index.html"><span>Home</span></a></li>
+					<li><a href="prepost.html"><span>Pre y post</span></a></li>
+					<li><a href="#"><span>Horarios</span></a></li>
+					<li><a href="#"><span>Pensum</span></a></li>
+					<li><a href="#"><span>Contacto</span></a></li>
+					<div class="clear"></div>
+				 </ul>
+			</div>
+		</div>
+			<div class="clear"></div>
+		</div>
+	</div>
 
 <div class="fluid_container">
    <div class="camera_wrap camera_emboss pattern_1" id="camera_wrap_4">
@@ -148,6 +167,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 </div>
 </div>
-<?php include_once ('footer.php');?>
+	'<div class="wrap">
+<div class="wrapper">
+	<div class="footer">
+		<div class="social-icons">
+	   		  	<ul>
+			      <li class="icon_1"><a href="#" target="_blank"> </a></li>
+			      <li class="icon_2"><a href="#" target="_blank"> </a></li>
+			      <li class="icon_3"><a href="#" target="_blank"> </a></li>
+			      <li class="icon_4"><a href="#" target="_blank"> </a></li>
+			      <div class="clear"></div>
+		     </ul>
+	   	 </div>
+		<a href="index.html"><h2>CURSAC</h2></a>
+		<div class="copy">
+			<p class="w3-link">© Todos los derechos reservados | Analisis y diseño 2 FIUSAC 2015</a></p>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+</div>
 </body>
 </html>

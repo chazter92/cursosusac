@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.cursarc</groupId>
+    <groupId>com.cursac</groupId>
     <artifactId>cursac</artifactId>
-    <version>1.0.0</version>
+    <version>3.0.0</version>
     <packaging>war</packaging>
 
     <name>cursac</name>
@@ -34,7 +34,37 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+        
+        
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>r09</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.w3c.css</groupId>
+            <artifactId>sac</artifactId>
+            <version>1.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.cssparser</groupId>
+            <artifactId>cssparser</artifactId>
+            <version>0.9.9</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.17</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        
     </dependencies>
+
 
     <build>
         <plugins>
@@ -83,38 +113,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.surefire</groupId>
-                        <artifactId>surefire-junit47</artifactId>
-                        <version>2.18.1</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-            <plugin>
-                <!--To support checkstyle goals. For example: "mvn checkstyle:checkstyle"-->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <configuration>
-                    <!-- <configLocation>/home/greenhorn/NetBeansProjects/greenhorn-checkstyle.xml</configLocation>-->
-                    <!-- The above conguration line works as well, but the below is prefered. -->
-                    <configLocation>src/main/resources/checkstyle-rules.xml</configLocation>
-                </configuration>
-            </plugin>
         </plugins>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>com.puppycrawl.tools</groupId>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>2.14</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 
 </project>

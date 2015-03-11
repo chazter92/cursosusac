@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cursarc.cursac;
+package cursac.controlador;
 
+import cursac.DBO.DAOCurso;
+import cursac.DBO.DBOCurso;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author RITA
  */
-@WebServlet(name = "Operaciones", urlPatterns = {"/Operaciones"})
-public class PruebaServlet extends HttpServlet {
+@WebServlet(name = "prepost", urlPatterns = {"/prepost"})
+public class ServletPrePost extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +39,10 @@ public class PruebaServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PruebaServlet</title>");            
+            out.println("<title>CURSAC</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet PruebaServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1></h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,7 +60,22 @@ public class PruebaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            
+            int codigo = Integer.parseInt(request.getParameter("txtCodigo"));
+            String btnPrePost = request.getParameter("btnPrePost");
+            DAOCurso connCurso = new DAOCurso();
+            DBOCurso cursoSolicitado = connCurso.obtenerCurso(codigo);
+            
+            if(btnPrePost!=null){
+                GraficaPrePost grafica = new GraficaPrePost(cursoSolicitado);
+                out.println(grafica.generarGrafica());
+                
+            }
+            
+        }
     }
 
     /**
@@ -75,35 +92,18 @@ public class PruebaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>CalcuMath</title>");            
-            out.println("</head>");
-            out.println("<body>");
             
+            int codigo = Integer.parseInt(request.getParameter("txtCodigo"));
+            String btnPrePost = request.getParameter("btnPrePost");
+            DAOCurso connCurso = new DAOCurso();
+            DBOCurso cursoSolicitado = connCurso.obtenerCurso(codigo);
             
-            int num1 = Integer.parseInt(request.getParameter("txtNum1"));
-            int num2 = Integer.parseInt(request.getParameter("txtNum2"));
-            String bSuma = request.getParameter("btnSuma");
-            String bResta = request.getParameter("btnResta");
-            
-            int res = 0;
-            //sumar sum = new sumar();
-            //restar ress = new restar(); 
-            
-            if(bSuma!=null){
-                 //res = sum.suma(num1, num2);
-                res = num1 +num2;
-            }else if(bResta!=null){
-                 //res = ress.restar(num1, num2);
-                res = num1 - num2;
+            if(btnPrePost!=null){
+                GraficaPrePost grafica = new GraficaPrePost(cursoSolicitado);
+                out.println(grafica.generarGrafica());
+                
             }
             
-            out.println("Resultado de la suma " + res);
-            
-            out.println("</body>");
-            out.println("</html>");
         }
     }
 
