@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cursac.cursosusac;
+package cursac.controlador;
 
-import cursac.DBO.DAOCurso;
-import cursac.DBO.DBOCurso;
+import cursac.datos.DboCurso;
+import cursac.datos.DaoCurso;
 import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import java.io.*;
@@ -19,9 +19,9 @@ import java.util.Collection;
  */
 public class GraficaPrePost {
 
-    DBOCurso curso;
+    DboCurso curso;
 
-    public GraficaPrePost(DBOCurso curso) {
+    public GraficaPrePost(DboCurso curso) {
         this.curso = curso;
     }
 
@@ -109,26 +109,26 @@ public class GraficaPrePost {
     }
 
     public String generarGrafica() {
-        DAOCurso connCurso = new DAOCurso();
+        DaoCurso connCurso = new DaoCurso();
         String grafica = "";
-        grafica += "ul id=\"org\" style=\"display:none\">\n"
+        grafica += "<ul id=\"org\" style=\"display:none\">\n"
                 + "            <li>\n"
                 + "             " + curso.getNombre() + "<p>Código: " + curso.getCodigo() + "<br>Créditos: " + curso.getCreditos() + "<br>Categoria: " + getCategoria(curso.getObligatorio()) + "</p>\n";
 
-        Collection<DBOCurso> cursosPost = connCurso.obtenerCursosPost(curso).values();
+        Collection<DboCurso> cursosPost = connCurso.obtenerCursosPost(curso).values();
 
         if (cursosPost.size() > 0) {
             grafica += "<ul>\n";
 
-            for (DBOCurso cursoP : cursosPost) {
+            for (DboCurso cursoP : cursosPost) {
                 grafica += "<li><a href=\"prepost.html?id=" + cursoP.getCodigo() + "\">" + cursoP.getNombre() + "</a><p>Código: " + cursoP.getNombre() + "<br>Créditos: " + cursoP.getCreditos() + "</p>\n";
 
-                Collection<DBOCurso> cursosPostPost = connCurso.obtenerCursosPost(cursoP).values();
+                Collection<DboCurso> cursosPostPost = connCurso.obtenerCursosPost(cursoP).values();
 
                 if (cursosPostPost.size() > 0) {
                     grafica += "<ul>\n";
 
-                    for (DBOCurso cursoPP : cursosPostPost) {
+                    for (DboCurso cursoPP : cursosPostPost) {
                         grafica += "<li><a href=\"prepost.html?id=" + cursoPP.getCodigo() + "\">" + cursoPP.getNombre() + "</a><p>Código: " + cursoPP.getNombre() + "<br>Créditos: " + cursoPP.getCreditos() + "</p></li>\n";
                     }
                     

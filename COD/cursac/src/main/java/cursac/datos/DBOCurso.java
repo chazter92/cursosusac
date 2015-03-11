@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cursac.DBO;
+package cursac.datos;
 
 /**
  *
  * @author Chaz
  */
-public class DBOCurso {
+public class DboCurso {
     private int codigo;
     private String nombre;
     private int creditos;
     private int obligatorio;
 
-    public DBOCurso(int codigo, String nombre, int creditos, int obligatorio) {
+    public DboCurso(int codigo, String nombre, int creditos, int obligatorio) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.creditos = creditos;

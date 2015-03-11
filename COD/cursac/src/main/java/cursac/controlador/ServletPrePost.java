@@ -5,8 +5,8 @@
  */
 package cursac.controlador;
 
-import cursac.DBO.DAOCurso;
-import cursac.DBO.DBOCurso;
+import cursac.datos.DboCurso;
+import cursac.datos.DaoCurso;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -66,8 +66,8 @@ public class ServletPrePost extends HttpServlet {
             
             int codigo = Integer.parseInt(request.getParameter("txtCodigo"));
             String btnPrePost = request.getParameter("btnPrePost");
-            DAOCurso connCurso = new DAOCurso();
-            DBOCurso cursoSolicitado = connCurso.obtenerCurso(codigo);
+            DaoCurso connCurso = new DaoCurso();
+            DboCurso cursoSolicitado = connCurso.obtenerCurso(codigo);
             
             if(btnPrePost!=null){
                 GraficaPrePost grafica = new GraficaPrePost(cursoSolicitado);
@@ -95,8 +95,8 @@ public class ServletPrePost extends HttpServlet {
             
             int codigo = Integer.parseInt(request.getParameter("txtCodigo"));
             String btnPrePost = request.getParameter("btnPrePost");
-            DAOCurso connCurso = new DAOCurso();
-            DBOCurso cursoSolicitado = connCurso.obtenerCurso(codigo);
+            DaoCurso connCurso = new DaoCurso();
+            DboCurso cursoSolicitado = connCurso.obtenerCurso(codigo);
             
             if(btnPrePost!=null){
                 GraficaPrePost grafica = new GraficaPrePost(cursoSolicitado);
