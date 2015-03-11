@@ -21,7 +21,7 @@ import javax.sql.rowset.CachedRowSet;
  *
  * @author Chaz
  */
-public class ConexionMySQL {
+public class ConexionMySql {
 
     public CachedRowSet query(String query, Object[] datos, Object[] tipos) {
         String dbUrl = "jdbc:mysql://localhost/cursac";

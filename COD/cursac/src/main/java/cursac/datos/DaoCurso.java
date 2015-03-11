@@ -5,7 +5,7 @@
  */
 package cursac.datos;
 
-    import cursac.controlador.ConexionMySQL ;
+    import cursac.controlador.ConexionMySql ;
     import java.sql.SQLException ;
 import java.util.ArrayList;
     import java.util.HashMap ;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
      */
     public class DaoCurso {
 
-        ConexionMySQL conn = new ConexionMySQL();
+        ConexionMySql conn = new ConexionMySql();
 
         public HashMap<String, DboCurso> obtenerCursosPost(DboCurso cursoPadre) {
             HashMap<String, DboCurso> cursos;
