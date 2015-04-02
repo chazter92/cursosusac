@@ -7,10 +7,6 @@ package cursac.controlador;
 
 import cursac.datos.DboCurso;
 import cursac.datos.DaoCurso;
-import java.sql.ResultSet;
-import javax.swing.ImageIcon;
-import java.io.*;
-import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -39,7 +35,7 @@ public class GraficaPrePost {
                 + "<link rel=\"stylesheet\" href=\"CSS/jquery.jOrgChart.css\"/>\n"
                 + "<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js\"></script>\n"
                 + "<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"></script>\n"
-                + "<script type=\"text/javascript\" src=\"LIB/jquery.jOrgChart.js\"></script>\n"
+                + "<script type=\"text/javascript\" src=\"http://cursosusac.site90.net/LIB/jquery.jOrgChart.js\"></script>\n"
                 + "<script>\n"
                 + "    jQuery(document).ready(function() {\n"
                 + "        $(\"#org\").jOrgChart({\n"
@@ -58,7 +54,7 @@ public class GraficaPrePost {
                 + "	<div class=\"cssmenu\">\n"
                 + "		<ul>\n"
                 + "		  	<li class=\"noactive\"><a href=\"index.html\"><span>Home</span></a></li>\n"
-                + "			<li class=\"active\"><a href=\"prepost.html\"><span>Pre y post</span></a></li>\n"
+                + "			<li class=\"active\"><a href=\"index2.html\"><span>Pre y post</span></a></li>\n"
                 + "			<li class=\"noactive\"><a href=\"#\"><span>Horarios</span></a></li>\n"
                 + "			<li class=\"has-sub\"><a href=\"#\"><span>Pensum</span></a></li>\n"
                 + "			<li \"last\"><a href=\"contact.html\"><span>Contacto</span></a></li>\n"
@@ -121,7 +117,7 @@ public class GraficaPrePost {
             grafica += "<ul>\n";
 
             for (DboCurso cursoP : cursosPost) {
-                grafica += "<li><a href=\"prepost.html?id=" + cursoP.getCodigo() + "\">" + cursoP.getNombre() + "</a><p>Código: " + cursoP.getNombre() + "<br>Créditos: " + cursoP.getCreditos() + "</p>\n";
+                grafica += "<li><a href=\"prepost?id=" + cursoP.getCodigo() + "\">" + cursoP.getNombre() + "</a><p>Código: " + cursoP.getCodigo() + "<br>Créditos: " + cursoP.getCreditos() + "</p>\n";
 
                 Collection<DboCurso> cursosPostPost = connCurso.obtenerCursosPost(cursoP).values();
 
@@ -129,7 +125,7 @@ public class GraficaPrePost {
                     grafica += "<ul>\n";
 
                     for (DboCurso cursoPP : cursosPostPost) {
-                        grafica += "<li><a href=\"prepost.html?id=" + cursoPP.getCodigo() + "\">" + cursoPP.getNombre() + "</a><p>Código: " + cursoPP.getNombre() + "<br>Créditos: " + cursoPP.getCreditos() + "</p></li>\n";
+                        grafica += "<li><a href=\"prepost?id=" + cursoPP.getCodigo() + "\">" + cursoPP.getNombre() + "</a><p>Código: " + cursoPP.getCodigo() + "<br>Créditos: " + cursoPP.getCreditos() + "</p></li>\n";
                     }
                     
                     grafica += "</ul>\n";

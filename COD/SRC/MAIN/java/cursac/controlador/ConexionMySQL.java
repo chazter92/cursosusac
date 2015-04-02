@@ -6,15 +6,11 @@
 package cursac.controlador;
 
 import com.sun.rowset.CachedRowSetImpl;
-import java.awt.Image;
-import java.io.File;
-import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import javax.sql.rowset.CachedRowSet;
 
 /**
@@ -24,10 +20,10 @@ import javax.sql.rowset.CachedRowSet;
 public class ConexionMySql {
 
     public CachedRowSet query(String query, Object[] datos, Object[] tipos) {
-        String dbUrl = "jdbc:mysql://localhost/cursac";
+        String dbUrl = "jdbc:mysql://localhost:3306/cursac";
         String dbClass = "com.mysql.jdbc.Driver";
         String username = "root";
-        String password = "Admin123";
+        String password = "admin123";
         try {
 
             Class.forName(dbClass);

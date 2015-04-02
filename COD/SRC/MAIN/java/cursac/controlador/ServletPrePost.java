@@ -5,8 +5,8 @@
  */
 package cursac.controlador;
 
-import cursac.datos.DboCurso;
 import cursac.datos.DaoCurso;
+import cursac.datos.DboCurso;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author RITA
  */
-@WebServlet(name = "prepost", urlPatterns = {"/prepost"})
+@WebServlet(name = "srvPrePost", urlPatterns = {"/prepost"})
 public class ServletPrePost extends HttpServlet {
 
     /**
@@ -39,7 +39,7 @@ public class ServletPrePost extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>CURSAC</title>");            
+            out.println("<title>CURSAC</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1></h1>");
@@ -62,19 +62,15 @@ public class ServletPrePost extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            
-            int codigo = Integer.parseInt(request.getParameter("txtCodigo"));
-            String btnPrePost = request.getParameter("btnPrePost");
+            String cod = request.getParameter("id");
+            int codigo = Integer.parseInt(request.getParameter("id"));
+
             DaoCurso connCurso = new DaoCurso();
             DboCurso cursoSolicitado = connCurso.obtenerCurso(codigo);
-            
-            if(btnPrePost!=null){
-                GraficaPrePost grafica = new GraficaPrePost(cursoSolicitado);
-                out.println(grafica.generarGrafica());
-                
-            }
-            
+
+            GraficaPrePost grafica = new GraficaPrePost(cursoSolicitado);
+            out.println(grafica.generarGrafica());
+
         }
     }
 
@@ -92,18 +88,18 @@ public class ServletPrePost extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+
             int codigo = Integer.parseInt(request.getParameter("txtCodigo"));
             String btnPrePost = request.getParameter("btnPrePost");
             DaoCurso connCurso = new DaoCurso();
             DboCurso cursoSolicitado = connCurso.obtenerCurso(codigo);
-            
-            if(btnPrePost!=null){
+
+            if (btnPrePost != null) {
                 GraficaPrePost grafica = new GraficaPrePost(cursoSolicitado);
                 out.println(grafica.generarGrafica());
-                
+
             }
-            
+
         }
     }
 
