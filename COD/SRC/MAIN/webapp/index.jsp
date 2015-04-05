@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -32,13 +33,13 @@
         <div class="wrap">
             <div class="wrapper">
                 <div class="logo">
-                    <a href="index.html"><h1>CURSAC</h1></a>
+                    <a href="index.jsp"><h1>CURSAC</h1></a>
                 </div>
                 <div class="header_right">
                     <div class="cssmenu">
                         <ul>
-                            <li class="active"><a href="index.html"><span>Home</span></a></li>
-                            <li id="lblprepost"><a href="index2.html"><span>Pre y post</span></a></li>
+                            <li class="active"><a href="index.jsp"><span>Home</span></a></li>
+                            <li id="lblprepost"><a href="consultarCurso.jsp"><span>Pre y post</span></a></li>
                             <li><a href="#"><span>Horarios</span></a></li>
                             <li><a href="#"><span>Pensum</span></a></li>
                             <li><a href="#"><span>Contacto</span></a></li>
@@ -173,9 +174,9 @@
 
                         </ul>
                     </div>
-                    <a href="index.html"><h2>CURSAC</h2></a>
+                    <a href="index.jsp"><h2>CURSAC</h2></a>
                     <div class="copy">
-                        <p class="w3-link">© Todos los derechos reservados | Analisis y diseño 2 FIUSAC 2015</p>
+                        <p class="w3-link">Â© Todos los derechos reservados | Analisis y diseÃ±o 2 FIUSAC 2015</p>
                     </div>
                 </div>
             </div>

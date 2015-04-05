@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -22,13 +23,13 @@
         <div class="wrap">
             <div class="wrapper">
                 <div class="logo">
-                    <a href="index.html"><h1>CURSAC</h1></a>
+                    <a href="index.jsp"><h1>CURSAC</h1></a>
                 </div>
                 <div class="header_right">
                     <div class="cssmenu">
                         <ul>
-                            <li><a href="index.html"><span>Home</span></a></li>
-                            <li class="active"><a href="index2.html"><span>Pre y post</span></a></li>
+                            <li><a href="index.jsp"><span>Home</span></a></li>
+                            <li class="active"><a href="consultarCurso.jsp"><span>Pre y post</span></a></li>
                             <li><a href="#"><span>Horarios</span></a></li>
                             <li><a href="#"><span>Pensum</span></a></li>
                             <li><a href="#"><span>Contacto</span></a></li>
@@ -47,7 +48,10 @@
                     <div class="main1">
                         <div class="grid_1_of_2 images_1_of_2">
                             <h2 class="style">Cursos pre y post requisito</h2>
-                            <p class="para top">Muchas veces como estudiantes queremos obtener información sobre los cursos que llevamos y los cursos que le siguen a este, pero es bastante complicado tomar un folleto con el pensum de la carrera y comenzar a buscar uno por uno los códigos diminutos de cada curso ¿Por qué no hacerlo más fácil? Nosotros te ayudaremos ¡Que la magía comience! </p>
+                            <p class="para top">Muchas veces como estudiantes queremos obtener información sobre los cursos que 
+                                llevamos y los cursos que le siguen a este, pero es bastante complicado tomar un folleto con el 
+                                pensum de la carrera y comenzar a buscar uno por uno los códigos diminutos de cada curso ¿Por qué
+                                no hacerlo más fácil? Nosotros te ayudaremos ¡Que la magía comience! </p>
                             <form name="frmCodigoCurso" action="prepost" method="POST">
                                 <br>Código:
                                 <input type="text" name="txtCodigo" id="txtCodigo">
@@ -78,9 +82,9 @@
                             <div class="clear"></div>
                         </ul>
                     </div>
-                    <a href="index.html"><h2>CURSAC</h2></a>
+                    <a href="index.jsp"><h2>CURSAC</h2></a>
                     <div class="copy">
-                        <p class="w3-link">© Todos los derechos reservados | Analisis y diseño 2 FIUSAC 2015</p>
+                        <p class="w3-link">Â© Todos los derechos reservados | Analisis y diseÃ±o 2 FIUSAC 2015</p>
                     </div>
                 </div>
             </div>

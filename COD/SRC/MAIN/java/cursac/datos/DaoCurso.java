@@ -26,6 +26,14 @@ public class DaoCurso {
                 new Object[]{cursoPadre.getCodigo()}, new Object[]{1}));
         return cursos;
     }
+    
+    public HashMap<String, DboCurso> obtenerCursosPre(DboCurso cursoHijo) {
+        HashMap<String, DboCurso> cursos;
+        cursos = convertirDbo(conn.query("SELECT C.codigo, C.nombre, C.creditos, C.obligatorio FROM CURSO C "
+                + "JOIN CURSO_PRE_POST P ON C.codigo = P.padre WHERE P.hijo = ?",
+                new Object[]{cursoHijo.getCodigo()}, new Object[]{1}));
+        return cursos;
+    }
 
     public HashMap<String, DboCurso> obtenerCursos() {
         HashMap<String, DboCurso> cursos;
@@ -41,7 +49,11 @@ public class DaoCurso {
                 new Object[]{codigo}, new Object[]{codigo}));
 
         ArrayList<DboCurso> cursosDevolver = new ArrayList(cursos.values());
-        return cursosDevolver.get(0);
+        if(cursosDevolver.size()>0){
+            return cursosDevolver.get(0);
+        }else{
+            return null;
+        }
     }
 
     private HashMap<String, DboCurso> convertirDbo(RowSet setCurso) {

@@ -9,6 +9,7 @@ import cursac.datos.DaoCurso;
 import cursac.datos.DboCurso;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,15 +37,7 @@ public class ServletPrePost extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>CURSAC</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1></h1>");
-            out.println("</body>");
-            out.println("</html>");
+
         }
     }
 
@@ -58,20 +51,29 @@ public class ServletPrePost extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String cod = request.getParameter("id");
-            int codigo = Integer.parseInt(request.getParameter("id"));
+    protected void doGet(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+
+        RequestDispatcher rd = null;
+        String cod = request.getParameter("id");
+        if (cod != null) {
+            int codigo = Integer.parseInt(cod);
 
             DaoCurso connCurso = new DaoCurso();
             DboCurso cursoSolicitado = connCurso.obtenerCurso(codigo);
 
-            GraficaPrePost grafica = new GraficaPrePost(cursoSolicitado);
-            out.println(grafica.generarGrafica());
-
+            if (cursoSolicitado != null) {
+                GraficaPrePost grafica = new GraficaPrePost(cursoSolicitado);
+                rd = request.getRequestDispatcher("/prepost.jsp");
+                request.setAttribute("grafica", grafica);
+                request.setAttribute("curso", cursoSolicitado);
+            } else {
+                rd = request.getRequestDispatcher("/errorprepost.jsp");
+            }
+        } else {
+            rd = request.getRequestDispatcher("/errorprepost.jsp");
         }
+        rd.forward(request, response);
     }
 
     /**
@@ -83,26 +85,48 @@ public class ServletPrePost extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+    protected void doPost(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+        int codigo = Integer.parseInt(request.getParameter("txtCodigo"));
+        String btnPrePost = request.getParameter("btnPrePost");
+        RequestDispatcher rd = null;
 
-            int codigo = Integer.parseInt(request.getParameter("txtCodigo"));
-            String btnPrePost = request.getParameter("btnPrePost");
-            DaoCurso connCurso = new DaoCurso();
-            DboCurso cursoSolicitado = connCurso.obtenerCurso(codigo);
+        DaoCurso connCurso = new DaoCurso();
+        DboCurso cursoSolicitado = connCurso.obtenerCurso(codigo);
 
-            if (btnPrePost != null) {
+        if (btnPrePost != null) {
+            if (cursoSolicitado != null) {
                 GraficaPrePost grafica = new GraficaPrePost(cursoSolicitado);
-                out.println(grafica.generarGrafica());
-
+                rd = request.getRequestDispatcher("/prepost.jsp");
+                request.setAttribute("grafica", grafica);
+                request.setAttribute("curso", cursoSolicitado);
+            } else {
+                rd = request.getRequestDispatcher("/errorprepost.jsp");
             }
-
         }
+        rd.forward(request, response);
     }
 
+    /*protected void doPost(HttpServletRequest request, HttpServletResponse response)
+     throws ServletException, IOException {
+     response.setContentType("text/html;charset=UTF-8");
+     try (PrintWriter out = response.getWriter()) {
+     /* TODO output your page here. You may use following sample code. 
+
+     int codigo = Integer.parseInt(request.getParameter("txtCodigo"));
+     String btnPrePost = request.getParameter("btnPrePost");
+     DaoCurso connCurso = new DaoCurso();
+     DboCurso cursoSolicitado = connCurso.obtenerCurso(codigo);
+
+     if (btnPrePost != null) {
+     if (cursoSolicitado != null) {
+     GraficaPrePost grafica = new GraficaPrePost(cursoSolicitado);
+     out.println(grafica.generarGrafica());
+     }
+     }
+
+     }
+     }*/
     /**
      * Returns a short description of the servlet.
      *
