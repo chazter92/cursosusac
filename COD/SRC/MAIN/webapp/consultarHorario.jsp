@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Pre y post requisitos</title>
+        <title>Horarios</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href='http://fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
@@ -11,13 +11,7 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
         <script type="text/javascript" src="http://cursosusac.site90.net/LIB/jquery.jOrgChart.js"></script>
-        <script>
-            jQuery(document).ready(function () {
-                $("#org").jOrgChart({
-                    chartElement: '#chart'
-                });
-            });
-        </script>
+        <script type="text/javascript" src="JS/addremove.js"></script>
     </head>
     <body>
         <div class="wrap">
@@ -29,8 +23,8 @@
                     <div class="cssmenu">
                         <ul>
                             <li><a href="index.jsp"><span>Home</span></a></li>
-                            <li class="active"><a href="consultarCurso.jsp"><span>Pre y post</span></a></li>
-                            <li><a href="horario"><span>Horarios</span></a></li>
+                            <li><a href="consultarCurso.jsp"><span>Pre y post</span></a></li>
+                            <li class="active"><a href="#"><span>Horarios</span></a></li>
                             <li><a href="#"><span>Pensum</span></a></li>
                             <li><a href="#"><span>Contacto</span></a></li>
                             <div class="clear"></div>
@@ -47,22 +41,35 @@
                 <div class="wrapper">
                     <div class="main1">
                         <div class="grid_1_of_2 images_1_of_2">
-                            <h2 class="style">Cursos pre y post requisito</h2>
-                            <p class="para top">Muchas veces como estudiantes queremos obtener información sobre los cursos que 
-                                llevamos y los cursos que le siguen a este, pero es bastante complicado tomar un folleto con el 
-                                pensum de la carrera y comenzar a buscar uno por uno los códigos diminutos de cada curso ¿Por qué
+                            <h2 class="style">Horario de cursos</h2>
+                            <p class="para top">Muchas veces al inicio del semestre esperamos la hora en la que se publiquen 
+                                los horarios de los cursos para intentar resolver el puzzle 
+                                que tenemos por delante: traslapes, horarios largos ¡Y TODO A MANO UNO A UNO! ¿Por qué
                                 no hacerlo más fácil? Nosotros te ayudaremos ¡Que la magía comience! </p>
-                            <form name="frmCodigoCurso" action="prepost" method="POST">
-                                <br>Código:
-                                <input type="text" name="txtCodigo" id="txtCodigo">
-                                <br>
-                                <div class="button1">
-                                    <input type="submit" value="Do it!" name="btnPrePost" id="btnPrePost" class="btn btn_s">
-                                </div>
+                            <br>
+                            Selecciona los cursos que vas a llevar este semestre y da click en agregar:
+                            <form name="frmHorario" action="crearHorario" method="POST">
+                                <fieldset>
+
+                                    <select name="selectfrom" id="select-from" multiple size="5">
+                                        ${requestScope['cursos']}
+                                    </select>
+
+                                    <a href="JavaScript:void(0);" id="btn-add">Agregar &raquo;</a>
+                                    <a href="JavaScript:void(0);" id="btn-remove">&laquo; Quitar</a>
+                                    <br>
+                                    <select name="selectto" id="select-to" multiple size="5">
+
+                                    </select>
+                                    <div class="button1">
+                                        <input type="submit" value="Do it!" name="btnHorario" id="btnHorario" class="btn btn_s">
+                                    </div>
+                                </fieldset>
                             </form>
+
                         </div>
                         <div class="grid_1_of_2 images_1_of_2 img_style">
-                            <img src="IMG/pic3.jpg" alt="">
+                            <img src="IMG/pic1.jpg" alt="">
                         </div>
                         <div class="clear"></div>
 

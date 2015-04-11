@@ -33,8 +33,8 @@
 .jOrgChart .node {
   background-color 		: #35363B;
   display               : inline-block;
-  width                 : 350px;
-  height                : 250px;
+  width                 : 125px;
+  height                : 100px;
   z-index 				: 10;
   margin               : 0 2px;
 }

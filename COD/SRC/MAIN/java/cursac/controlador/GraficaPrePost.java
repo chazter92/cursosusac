@@ -36,7 +36,7 @@ public class GraficaPrePost {
             for (DboCurso cursoP : cursosPost) {
                 grafica += "<li><a href=\"prepost?id=" + cursoP.getCodigo() + "\">" + cursoP.getNombre() + "</a><p>Código: " + cursoP.getCodigo() + "<br>Créditos: " + cursoP.getCreditos() + "</p>\n";
 
-                Collection<DboCurso> cursosPostPost = connCurso.obtenerCursosPost(cursoP).values();
+                Collection<DboCurso>  cursosPostPost = connCurso.obtenerCursosPost(cursoP).values();
 
                 if (cursosPostPost.size() > 0) {
                     grafica += "<ul>\n";
@@ -60,8 +60,8 @@ public class GraficaPrePost {
 
     public String obtenerPrerequisitos() {
         DaoCurso connCurso = new DaoCurso();
-        String prerequisitos = "Pre Requisitos: ";
-        Collection<DboCurso> cursosPre = connCurso.obtenerCursosPre(curso).values();
+        String prerequisitos = "";
+        Collection<DboCurso>  cursosPre = connCurso.obtenerCursosPre(curso).values();
 
         if (cursosPre.size() > 0) {
             prerequisitos += "<table border=0>";

@@ -36,7 +36,7 @@
                         <ul>
                             <li class="noactive"><a href="index.jsp"><span>Home</span></a></li>
                             <li class="active"><a href="consultarCurso.jsp"><span>Pre y post</span></a></li>
-                            <li class="noactive"><a href="#"><span>Horarios</span></a></li>
+                            <li class="noactive"><a href="horario"><span>Horarios</span></a></li>
                             <li class="has-sub"><a href="#"><span>Pensum</span></a></li>
                             <li "last"><a href="contact.html"><span>Contacto</span></a></li>
                             <div class="clear"></div>
@@ -54,6 +54,8 @@
                             <h2 class="style"> ${requestScope['curso'].getNombre()} </h2>
                             <div id="chart" class="orgChart"></div>
                             ${requestScope['grafica'].generarGrafica()}
+                            </br>
+                            Pre Requisitos: 
                             ${requestScope['grafica'].obtenerPrerequisitos()}
                             <div class="clear"></div>
 
