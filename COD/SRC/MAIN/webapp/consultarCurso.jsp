@@ -52,6 +52,7 @@
                                 llevamos y los cursos que le siguen a este, pero es bastante complicado tomar un folleto con el 
                                 pensum de la carrera y comenzar a buscar uno por uno los códigos diminutos de cada curso ¿Por qué
                                 no hacerlo más fácil? Nosotros te ayudaremos ¡Que la magía comience! </p>
+                            
                             <form name="frmCodigoCurso" action="prepost" method="POST">
                                 <br>Código:
                                 <input type="text" name="txtCodigo" id="txtCodigo">

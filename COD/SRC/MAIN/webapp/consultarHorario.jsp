@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="CSS/jquery.jOrgChart.css"/>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="http://cursosusac.site90.net/LIB/jquery.jOrgChart.js"></script>
         <script type="text/javascript" src="JS/addremove.js"></script>
     </head>
     <body>
@@ -48,17 +47,18 @@
                                 no hacerlo más fácil? Nosotros te ayudaremos ¡Que la magía comience! </p>
                             <br>
                             Selecciona los cursos que vas a llevar este semestre y da click en agregar:
-                            <form name="frmHorario" action="crearHorario" method="POST">
+                            
+                            <form id="frmHorario" name="frmHorario" action="crearHorario" method="POST">
                                 <fieldset>
 
-                                    <select name="selectfrom" id="select-from" multiple size="5">
+                                    <select name="cursosFrom" id="select-from" multiple="multiple" size="5">
                                         ${requestScope['cursos']}
                                     </select>
 
                                     <a href="JavaScript:void(0);" id="btn-add">Agregar &raquo;</a>
                                     <a href="JavaScript:void(0);" id="btn-remove">&laquo; Quitar</a>
                                     <br>
-                                    <select name="selectto" id="select-to" multiple size="5">
+                                    <select name="cursosTo" id="select-to" multiple="multiple" size="5">
 
                                     </select>
                                     <div class="button1">

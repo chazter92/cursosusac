@@ -6,15 +6,10 @@
 package cursac.controlador;
 
 import cursac.datos.DaoAsignacionHorario;
-import cursac.datos.DaoCurso;
-import cursac.datos.DaoSeccion;
 import cursac.datos.DboAsignacionHorario;
-import cursac.datos.DboCurso;
-import cursac.datos.DboSeccion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author CHAZ
  */
-@WebServlet(name = "srvTodosCursos", urlPatterns = {"/horario"})
-public class ServletTodosCursos extends HttpServlet {
+@WebServlet(name = "srvGenerarHorario", urlPatterns = {"/crearHorario"})
+public class ServletGenerarHorario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -60,32 +55,6 @@ public class ServletTodosCursos extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
 
-        RequestDispatcher rd = null;
-        int id_periodo = 3;
-        DaoCurso connCurso = new DaoCurso();
-        DaoSeccion connSeccion = new DaoSeccion();
-        DaoAsignacionHorario connAsignacion = new DaoAsignacionHorario();
-        
-        HashMap<String, DboCurso> cursos = connCurso.obtenerCursos();
-        ArrayList<DboSeccion> secciones = connSeccion.obtenerSecciones();
-        
-        ArrayList<DboAsignacionHorario> cursoSeccion = connAsignacion.obtenerCursoSeccion(id_periodo);
-        
-        if (cursoSeccion != null) {
-            String cursosSecciones = "";
-            for(DboAsignacionHorario actual : cursoSeccion){
-                cursosSecciones += "<option value=\""+actual.codigoSeccion()+"\">"+cursos.get(String.valueOf(actual.getCodigo())).getNombre()+
-                        " "+ secciones.get(actual.getId_seccion()-1).getSeccion()+ "</option>";
-                
-            }
-            rd = request.getRequestDispatcher("/consultarHorario.jsp");
-            request.setAttribute("cursos", cursosSecciones);
-            
-        } else {
-            rd = request.getRequestDispatcher("/index.jsp");
-        }
-
-        rd.forward(request, response);
     }
 
     /**
@@ -101,29 +70,37 @@ public class ServletTodosCursos extends HttpServlet {
             HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = null;
         int id_periodo = 3;
-        DaoCurso connCurso = new DaoCurso();
-        DaoSeccion connSeccion = new DaoSeccion();
+
+        String[] cursosTo = request.getParameterValues("cursosTo[]");
         DaoAsignacionHorario connAsignacion = new DaoAsignacionHorario();
-        
-        HashMap<String, DboCurso> cursos = connCurso.obtenerCursos();
-        ArrayList<DboSeccion> secciones = connSeccion.obtenerSecciones();
-        
-        ArrayList<DboAsignacionHorario> cursoSeccion = connAsignacion.obtenerCursoSeccion(id_periodo);
-        
-        if (cursoSeccion != null) {
-            String cursosSecciones = "";
-            
-            for(DboAsignacionHorario actual : cursoSeccion){
-                cursosSecciones += "<option value=\""+actual.codigoSeccion()+"\">"+cursos.get(String.valueOf(actual.getCodigo())).getNombre()+
-                        " "+ secciones.get(actual.getId_seccion()).getSeccion()+ "</option>";
+        ArrayList<DboAsignacionHorario> asginaciones = new ArrayList<>();
+        ArrayList<DboAsignacionHorario> traslapes = new ArrayList<>();
+        int empezar = 1;
+        for (String curso : cursosTo) {
+
+            String[] partes = curso.split("-");
+            ArrayList<DboAsignacionHorario> asignacionActual = connAsignacion.obtenerAsignaciones(id_periodo, Integer.parseInt(partes[0]), Integer.parseInt(partes[1]));
+            if (asignacionActual != null) {
+                asginaciones.addAll(asignacionActual);
             }
-            rd = request.getRequestDispatcher("/consultarHorario.jsp");
-            request.setAttribute("cursos", cursosSecciones);
-            
-        } else {
-            rd = request.getRequestDispatcher("/index.jsp");
+            for (int i = empezar; i < cursosTo.length; i++) {
+
+                if (cursosTo[i] != null) {
+                    String[] partes2 = cursosTo[i].split("-");
+                    ArrayList<DboAsignacionHorario> traslapeActual = connAsignacion.obtenerTraslapes(id_periodo, Integer.parseInt(partes[0]), Integer.parseInt(partes[1]),
+                            Integer.parseInt(partes2[0]), Integer.parseInt(partes2[1]));
+                    if (traslapeActual != null) {
+                        traslapes.addAll(traslapeActual);
+                    }
+                }
+            }
+
+            empezar++;
         }
 
+        rd = request.getRequestDispatcher("/verHorario.jsp");
+
+        //request.setAttribute("cursos", cursosSecciones);
         rd.forward(request, response);
     }
 
