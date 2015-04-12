@@ -5,8 +5,8 @@
  */
 package cursac.controlador;
 
-import cursac.datos.DaoCurso;
-import cursac.datos.DboCurso;
+import cursac.modelo.DaoCurso;
+import cursac.modelo.DboCurso;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cursac.controlador;
+package cursac.modelo;
 
 import com.sun.rowset.CachedRowSetImpl;
 import java.sql.Connection;

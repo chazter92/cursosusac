@@ -5,8 +5,8 @@
  */
 package cursac.controlador;
 
-import cursac.datos.DboCurso;
-import cursac.datos.DaoCurso;
+import cursac.modelo.DboCurso;
+import cursac.modelo.DaoCurso;
 import java.util.Collection;
 
 /**

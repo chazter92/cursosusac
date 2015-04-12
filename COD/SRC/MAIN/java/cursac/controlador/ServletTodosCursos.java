@@ -5,12 +5,12 @@
  */
 package cursac.controlador;
 
-import cursac.datos.DaoAsignacionHorario;
-import cursac.datos.DaoCurso;
-import cursac.datos.DaoSeccion;
-import cursac.datos.DboAsignacionHorario;
-import cursac.datos.DboCurso;
-import cursac.datos.DboSeccion;
+import cursac.modelo.DaoAsignacionHorario;
+import cursac.modelo.DaoCurso;
+import cursac.modelo.DaoSeccion;
+import cursac.modelo.DboAsignacionHorario;
+import cursac.modelo.DboCurso;
+import cursac.modelo.DboSeccion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;

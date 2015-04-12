@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cursac.datos;
+package cursac.modelo;
 
+import cursac.modelo.DboEdificio;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author Chaz
  */
-public class DboDiaTest {
+public class DboEdificioTest {
     
-    public DboDiaTest() {
+    public DboEdificioTest() {
     }
     
     @BeforeClass
@@ -38,51 +39,51 @@ public class DboDiaTest {
     }
 
     /**
-     * Test of getId_ida method, of class DboDia.
+     * Test of getId_edificio method, of class DboEdificio.
      */
     @Test
-    public void testGetId_ida() {
-        System.out.println("getId_ida");
-        DboDia instance = new DboDia(1, "Domingo");
+    public void testGetId_edificio() {
+        System.out.println("getId_edificio");
+        DboEdificio instance = new DboEdificio(1, "T-3");
         int expResult = 1;
-        int result = instance.getId_ida();
+        int result = instance.getId_edificio();
         assertEquals(expResult, result);
         
     }
 
     /**
-     * Test of setId_ida method, of class DboDia.
+     * Test of setId_edificio method, of class DboEdificio.
      */
     @Test
-    public void testSetId_ida() {
-        System.out.println("setId_ida");
-        int id_ida = 0;
-        DboDia instance = new DboDia(1, "Domingo");
-        instance.setId_ida(id_ida);
+    public void testSetId_edificio() {
+        System.out.println("setId_edificio");
+        int id_edificio = 1;
+        DboEdificio instance = new DboEdificio(1, "T-3");
+        instance.setId_edificio(id_edificio);
         
     }
 
     /**
-     * Test of getNombre method, of class DboDia.
+     * Test of getNombre method, of class DboEdificio.
      */
     @Test
     public void testGetNombre() {
         System.out.println("getNombre");
-        DboDia instance = new DboDia(1, "Domingo");
-        String expResult = "Domingo";
+        DboEdificio instance = new DboEdificio(1, "T-3");
+        String expResult = "T-3";
         String result = instance.getNombre();
         assertEquals(expResult, result);
         
     }
 
     /**
-     * Test of setNombre method, of class DboDia.
+     * Test of setNombre method, of class DboEdificio.
      */
     @Test
     public void testSetNombre() {
         System.out.println("setNombre");
-        String nombre = "Domingo";
-        DboDia instance = new DboDia(1, "Domingo");
+        String nombre = "T-3";
+        DboEdificio instance = new DboEdificio(1, "T-3");
         instance.setNombre(nombre);
         
     }

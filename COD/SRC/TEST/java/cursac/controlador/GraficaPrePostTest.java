@@ -5,7 +5,7 @@
  */
 package cursac.controlador;
 
-import cursac.datos.DboCurso;
+import cursac.modelo.DboCurso;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

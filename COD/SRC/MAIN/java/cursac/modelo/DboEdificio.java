@@ -3,27 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cursac.datos;
+package cursac.modelo;
 
 /**
  *
  * @author Chaz
  */
-public class DboDia {
-    private int id_ida;
+public class DboEdificio {
+    private int id_edificio;
     private String nombre;
 
-    public DboDia(int id_ida, String nombre) {
-        this.id_ida = id_ida;
+    public DboEdificio(int id_edificio, String nombre) {
+        this.id_edificio = id_edificio;
         this.nombre = nombre;
     }
 
-    public int getId_ida() {
-        return id_ida;
+    public int getId_edificio() {
+        return id_edificio;
     }
 
-    public void setId_ida(int id_ida) {
-        this.id_ida = id_ida;
+    public void setId_edificio(int id_edificio) {
+        this.id_edificio = id_edificio;
     }
 
     public String getNombre() {

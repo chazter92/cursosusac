@@ -46,8 +46,8 @@
                     <div class="main1">
                         <div class="grid_1_of_2 images_1_of_2">
                             <h2 class="style"> Mi horario </h2>
-                                Total asignaciones: ${requestScope['asginaciones']}
-                                Total traslapes: ${requestScope['traslapes']}
+                                Total de asignaciones: ${requestScope['asginaciones']}
+                                Total de traslapes: ${requestScope['traslapes']}
                         </div>
                     </div>
                 </div>

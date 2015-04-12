@@ -5,8 +5,8 @@
  */
 package cursac.controlador;
 
-import cursac.datos.DaoAsignacionHorario;
-import cursac.datos.DboAsignacionHorario;
+import cursac.modelo.DaoAsignacionHorario;
+import cursac.modelo.DboAsignacionHorario;
 import java.util.ArrayList;
 
 /**
