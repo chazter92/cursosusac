@@ -21,7 +21,6 @@ $(document).ready(function () {
         $('#select-to :selected').each(function (i, selected) {
             opciones[i] = $(selected).val();
         });
-        
         $.post("crearHorario", {cursosTo: opciones});
 
     });

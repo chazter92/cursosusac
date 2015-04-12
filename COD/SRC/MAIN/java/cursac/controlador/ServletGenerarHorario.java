@@ -5,11 +5,8 @@
  */
 package cursac.controlador;
 
-import cursac.datos.DaoAsignacionHorario;
-import cursac.datos.DboAsignacionHorario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -67,63 +64,18 @@ public class ServletGenerarHorario extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
+            HttpServletResponse response) throws ServletException, IOException, NullPointerException {
         RequestDispatcher rd = null;
-        int id_periodo = 3;
-
-        String[] cursosTo = request.getParameterValues("cursosTo[]");
-        DaoAsignacionHorario connAsignacion = new DaoAsignacionHorario();
-        ArrayList<DboAsignacionHorario> asginaciones = new ArrayList<>();
-        ArrayList<DboAsignacionHorario> traslapes = new ArrayList<>();
-        int empezar = 1;
-        for (String curso : cursosTo) {
-
-            String[] partes = curso.split("-");
-            ArrayList<DboAsignacionHorario> asignacionActual = connAsignacion.obtenerAsignaciones(id_periodo, Integer.parseInt(partes[0]), Integer.parseInt(partes[1]));
-            if (asignacionActual != null) {
-                asginaciones.addAll(asignacionActual);
-            }
-            for (int i = empezar; i < cursosTo.length; i++) {
-
-                if (cursosTo[i] != null) {
-                    String[] partes2 = cursosTo[i].split("-");
-                    ArrayList<DboAsignacionHorario> traslapeActual = connAsignacion.obtenerTraslapes(id_periodo, Integer.parseInt(partes[0]), Integer.parseInt(partes[1]),
-                            Integer.parseInt(partes2[0]), Integer.parseInt(partes2[1]));
-                    if (traslapeActual != null) {
-                        traslapes.addAll(traslapeActual);
-                    }
-                }
-            }
-
-            empezar++;
-        }
-
+        String[] cursos = request.getParameterValues("cursosTo[]");
+        CalcularAsignacionTraslape traslapes = new CalcularAsignacionTraslape(cursos);
+        traslapes.calcularAsignacionTraslape();
         rd = request.getRequestDispatcher("/verHorario.jsp");
 
-        //request.setAttribute("cursos", cursosSecciones);
+        request.setAttribute("asignaciones", traslapes.totalAsignaciones());
+        request.setAttribute("traslapes", traslapes.totalTraslapes());
         rd.forward(request, response);
     }
 
-    /*protected void doPost(HttpServletRequest request, HttpServletResponse response)
-     throws ServletException, IOException {
-     response.setContentType("text/html;charset=UTF-8");
-     try (PrintWriter out = response.getWriter()) {
-     /* TODO output your page here. You may use following sample code. 
-
-     int codigo = Integer.parseInt(request.getParameter("txtCodigo"));
-     String btnPrePost = request.getParameter("btnPrePost");
-     DaoCurso connCurso = new DaoCurso();
-     DboCurso cursoSolicitado = connCurso.obtenerCurso(codigo);
-
-     if (btnPrePost != null) {
-     if (cursoSolicitado != null) {
-     GraficaPrePost grafica = new GraficaPrePost(cursoSolicitado);
-     out.println(grafica.generarGrafica());
-     }
-     }
-
-     }
-     }*/
     /**
      * Returns a short description of the servlet.
      *

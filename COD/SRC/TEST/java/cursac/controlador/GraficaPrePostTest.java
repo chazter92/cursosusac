@@ -38,52 +38,16 @@ public class GraficaPrePostTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of escribirArchivo method, of class GraficaPrePost.
-     
     @Test
-    public void testEscribirArchivo() {
-        System.out.println("escribirArchivo");
-        String grafica = "";
-        GraficaPrePost instance = new GraficaPrePost(new DboCurso(101,"Matematica basica 1", 5, 1));
-        String expResult = "";
-        String result = instance.escribirArchivo(grafica);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    } */
-
-    /**
-     * Test of generarGrafica method, of class GraficaPrePost.
-    
-    @Test
-    public void testGenerarGrafica() {
-        System.out.println("generarGrafica");
-        GraficaPrePost instance = null;
-        String expResult = "";
-        String result = instance.generarGrafica();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of obtenerPrerequisitos method, of class GraficaPrePost.
-    
-    @Test
-    public void testObtenerPrerequisitos() {
-        System.out.println("obtenerPrerequisitos");
-        GraficaPrePost instance = null;
-        String expResult = "";
+    public void testGetPrerequisitos() {
+        System.out.println("getPrerequisitos");
+        DboCurso curso = new DboCurso(101,"Matematica basica 1", 5, 1);
+        GraficaPrePost instance = new GraficaPrePost(curso);
+        String expResult = "NINGUNO";
         String result = instance.obtenerPrerequisitos();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
-
     
-     * Test of getCategoria method, of class GraficaPrePost.
-     */
     @Test
     public void testGetCategoria() {
         System.out.println("getCategoria");

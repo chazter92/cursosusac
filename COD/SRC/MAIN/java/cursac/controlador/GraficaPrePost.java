@@ -72,7 +72,7 @@ public class GraficaPrePost {
             }
             prerequisitos += "</table>";
         } else {
-            prerequisitos += "NINGUNO\n";
+            prerequisitos += "NINGUNO";
         }
         return prerequisitos;
     }
