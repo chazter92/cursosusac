@@ -24,7 +24,7 @@ public class PruebaFuncional extends SeleneseTestBase {
     
     @Test
     public void testSimple() throws Exception {
-        selenium.open("/cursac");
+        selenium.open("/cursac/consultarCurso.jsp");
         selenium.waitForPageToLoad("50000");
         selenium.type("id=txtCodigo", "101");
         selenium.click("id=btnPrePost");
