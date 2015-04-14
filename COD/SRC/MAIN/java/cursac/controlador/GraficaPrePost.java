@@ -57,6 +57,43 @@ public class GraficaPrePost {
         }
         return grafica;
     }
+    
+    public String generarGraficaCopiado() {
+        DaoCurso connCurso = new DaoCurso();
+        String grafica = "";
+        grafica += "<ul id=\"org\" style=\"display:none\">\n"
+                + "            <li>\n"
+                + "             " + curso.getNombre() + "<p>Código: " + curso.getCodigo() + "<br>Créditos: " + curso.getCreditos() + "<br>Categoria: " + getCategoria(curso.getObligatorio()) + "</p>\n";
+
+        Collection<DboCurso> cursosPost = connCurso.obtenerCursosPost(curso).values();
+
+        if (cursosPost.size() > 0) {
+            grafica += "<ul>\n";
+
+            for (DboCurso cursoP : cursosPost) {
+                grafica += "<li><a href=\"prepost?id=" + cursoP.getCodigo() + "\">" + cursoP.getNombre() + "</a><p>Código: " + cursoP.getCodigo() + "<br>Créditos: " + cursoP.getCreditos() + "</p>\n";
+
+                Collection<DboCurso>  cursosPostPost = connCurso.obtenerCursosPost(cursoP).values();
+
+                if (cursosPostPost.size() > 0) {
+                    grafica += "<ul>\n";
+
+                    for (DboCurso cursoPP : cursosPostPost) {
+                        grafica += "<li><a href=\"prepost?id=" + cursoPP.getCodigo() + "\">" + cursoPP.getNombre() + "</a><p>Código: " + cursoPP.getCodigo() + "<br>Créditos: " + cursoPP.getCreditos() + "</p></li>\n";
+                    }
+
+                    grafica += "</ul>\n";
+                }
+                grafica += "</li>";
+            }
+            grafica += "</ul>\n"
+                    + "</li></ul>";
+        } else {
+            grafica += "</li></ul>\n"
+                    + "Post Requisitos: NINGUNO";
+        }
+        return grafica;
+    }
 
     public String obtenerPrerequisitos() {
         DaoCurso connCurso = new DaoCurso();
