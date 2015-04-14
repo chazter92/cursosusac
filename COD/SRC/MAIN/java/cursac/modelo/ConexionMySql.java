@@ -23,7 +23,7 @@ public class ConexionMySql {
         String dbUrl = "jdbc:mysql://localhost:3306/cursac";
         String dbClass = "com.mysql.jdbc.Driver";
         String username = "root";
-        String password = "admin123";
+        String password = "Admin123";
         try {
 
             Class.forName(dbClass);
