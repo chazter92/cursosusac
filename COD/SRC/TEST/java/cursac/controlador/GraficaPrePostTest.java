@@ -38,7 +38,7 @@ public class GraficaPrePostTest {
     public void tearDown() {
     }
 
-    @Test
+    /*@Test
     public void testGetPrerequisitos() {
         System.out.println("getPrerequisitos");
         DboCurso curso = new DboCurso(101,"Matematica basica 1", 5, 1);
@@ -46,7 +46,7 @@ public class GraficaPrePostTest {
         String expResult = "NINGUNO";
         String result = instance.obtenerPrerequisitos();
         assertEquals(expResult, result);
-    }
+    }*/
     
     @Test
     public void testGetCategoria() {

@@ -51,14 +51,14 @@
                             <form id="frmHorario" name="frmHorario" action="crearHorario" method="POST">
                                 <fieldset>
 
-                                    <select name="cursosFrom" id="select-from" multiple="multiple" size="5">
+                                    <select name="cursosFrom" id="select-from" multiple="multiple" size="15">
                                         ${requestScope['cursos']}
                                     </select>
 
                                     <a href="JavaScript:void(0);" id="btn-add">Agregar &raquo;</a>
                                     <a href="JavaScript:void(0);" id="btn-remove">&laquo; Quitar</a>
                                     <br>
-                                    <select name="cursosTo" id="select-to" multiple="multiple" size="5">
+                                    <select name="cursosTo[]" id="select-to" multiple="multiple" size="5">
 
                                     </select>
                                     <div class="button1">

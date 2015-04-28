@@ -33,7 +33,7 @@ public class DaoAsignacionHorario {
         return asignaciones;
     }
 
-    public ArrayList<DboAsignacionHorario> obtenerTraslapes(int id_periodo, int codigo1, int id_seccion1, int codigo2, int id_seccion2) {
+    public ArrayList<DboAsignacionHorario> obtenerTraslapes(int codigo1, int id_seccion1, int codigo2, int id_seccion2) {
         ArrayList<DboAsignacionHorario> asignaciones;
         asignaciones = convertirDbo(conn.query("SELECT a.id_seccion, a.id_periodo, a.id_dia, a.id_salon, a.id_horario, a.codigo FROM"
                 + "(SELECT  id_seccion, id_periodo, id_dia, id_salon, id_horario, codigo FROM asignacion_horario "
@@ -42,7 +42,7 @@ public class DaoAsignacionHorario {
                 + "(SELECT id_seccion, id_periodo, id_dia, id_salon, id_horario, codigo FROM asignacion_horario "
                 + "WHERE codigo = ? and id_seccion = ?) b "
                 + "ON a.id_dia = b.id_dia AND a.id_horario = b.id_horario",
-                new Object[]{id_periodo, codigo1, id_seccion1, codigo2, id_seccion2}, new Object[]{id_periodo, codigo1, id_seccion1, codigo2, id_seccion2}));
+                new Object[]{codigo1, id_seccion1, codigo2, id_seccion2}, new Object[]{codigo1, id_seccion1, codigo2, id_seccion2}));
         return asignaciones;
     }
 

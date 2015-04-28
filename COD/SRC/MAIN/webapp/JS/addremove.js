@@ -15,13 +15,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#frmHorario").submit(function () {
-        $('#select-to option').prop('selected', true);
-        var opciones = [];
-        $('#select-to :selected').each(function (i, selected) {
-            opciones[i] = $(selected).val();
-        });
-        $.post("crearHorario", {cursosTo: opciones});
-
+    $("#btnHorario").click(function () {
+        $('#select-to option').prop('selected', true);        
     });
 });

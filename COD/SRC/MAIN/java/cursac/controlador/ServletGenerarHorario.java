@@ -67,13 +67,19 @@ public class ServletGenerarHorario extends HttpServlet {
             HttpServletResponse response) throws ServletException, IOException, NullPointerException {
         RequestDispatcher rd = null;
         String[] cursos = request.getParameterValues("cursosTo[]");
-        CalcularAsignacionTraslape traslapes = new CalcularAsignacionTraslape(cursos);
-        traslapes.calcularAsignacionTraslape();
-        rd = request.getRequestDispatcher("/verHorario.jsp");
+        if (cursos != null) {
+            if (cursos.length > 0) {
+                CalcularAsignacionTraslape traslapes = new CalcularAsignacionTraslape(cursos);
+                traslapes.calcularAsignacionTraslape();
+                rd = request.getRequestDispatcher("/verHorario.jsp");
 
-        request.setAttribute("asignaciones", traslapes.totalAsignaciones());
-        request.setAttribute("traslapes", traslapes.totalTraslapes());
-        rd.forward(request, response);
+                request.setAttribute("horario", traslapes.graficaHorario());
+                request.setAttribute("traslapes", traslapes.totalTraslapes());
+                rd.forward(request, response);
+            }
+
+        }
+        
     }
 
     /**
