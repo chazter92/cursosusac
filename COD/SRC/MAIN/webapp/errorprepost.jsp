@@ -37,7 +37,7 @@
                             <li class="noactive"><a href="index.jsp"><span>Home</span></a></li>
                             <li class="active"><a href="consultarCurso.jsp"><span>Pre y post</span></a></li>
                             <li class="noactive"><a href="horario"><span>Horarios</span></a></li>
-                            <li class="has-sub"><a href="#"><span>Pensum</span></a></li>
+                            <li class="has-sub"><a href="pensum.jsp"><span>Pensum</span></a></li>
                             <li "last"><a href="contact.html"><span>Contacto</span></a></li>
                             <div class="clear"></div>
                         </ul>

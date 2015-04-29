@@ -8,22 +8,13 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title> ${requestScope['curso'].getNombre()} </title>
+        <title> Mi horario </title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href='http://fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
         <link href="CSS/style.css" rel="stylesheet" type="text/css" media="all" />
-        <link rel="stylesheet" href="CSS/jquery.jOrgChart.css"/>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="http://cursosusac.site90.net/LIB/jquery.jOrgChart.js"></script>
-        <script>
-            jQuery(document).ready(function () {
-                $("#org").jOrgChart({
-                    chartElement: '#chart'
-                });
-            });
-        </script>
+
+
     </head>
     <body>
         <div class="wrap">
@@ -35,8 +26,8 @@
                     <div class="cssmenu">
                         <ul>
                             <li class="noactive"><a href="index.jsp"><span>Home</span></a></li>
-                            <li class="active"><a href="consultarCurso.jsp"><span>Pre y post</span></a></li>
-                            <li class="noactive"><a href="horario"><span>Horarios</span></a></li>
+                            <li class="noactive"><a href="consultarCurso.jsp"><span>Pre y post</span></a></li>
+                            <li class="active"><a href="horario"><span>Horarios</span></a></li>
                             <li class="has-sub"><a href="pensum.jsp"><span>Pensum</span></a></li>
                             <li "last"><a href="contact.html"><span>Contacto</span></a></li>
                             <div class="clear"></div>
@@ -51,14 +42,19 @@
                 <div class="wrapper">
                     <div class="main1">
                         <div class="grid_1_of_2 images_1_of_2">
-                            <h2 class="style"> ${requestScope['curso'].getNombre()} </h2>
-                            <div id="chart" class="orgChart"></div>
-                            ${requestScope['grafica'].generarGrafica()}
-                            </br>
-                            Pre Requisitos: 
-                            ${requestScope['grafica'].obtenerPrerequisitos()}
-                            <div class="clear"></div>
-
+                            <h2 class="style"> Pensums Ingeniería </h2>
+                            <ul>
+                                <li><a href="IMG/PNS/ingenieria_civil.jpg" target="_BLANK">Ingeniería Civil</a></li>
+                                <li><a href="IMG/PNS/ingenieria_quimica.jpg" target="_BLANK">Ingeniería Química</a></li>
+                                <li><a href="IMG/PNS/ingenieria_mecanica.jpg" target="_BLANK">Ingeniería Mecánica</a></li>
+                                <li><a href="IMG/PNS/ingenieria_electrica.jpg" target="_BLANK">Ingeniería Eléctrica</a></li>
+                                <li><a href="IMG/PNS/ingenieria_industrial.jpg" target="_BLANK">Ingeniería Industrial</a></li>
+                                <li><a href="IMG/PNS/ingenieria_mecanicaelectrica.jpg" target="_BLANK">Ingeniería Mecánica eléctrica</a></li>
+                                <li><a href="IMG/PNS/ingenieria_mecanica_industrial.jpg" target="_BLANK">Ingeniería Mecánica industrial</a></li>
+                                <li><a href="IMG/PNS/ingenieria_sistemas.jpg" target="_BLANK">Ingeniería en ciencias y sistemas</a></li>
+                                <li><a href="IMG/PNS/ingenieria_electronica.jpg" target="_BLANK">Ingeniería Electrónica</a></li>
+                                <li><a href="IMG/PNS/ingenieria_ambiental.jpg" target="_BLANK">Ingeniería Ambiental</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

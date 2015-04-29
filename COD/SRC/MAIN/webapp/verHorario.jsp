@@ -13,6 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href='http://fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
         <link href="CSS/style.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="CSS/tabla.css" rel="stylesheet" type="text/css" media="all" />
         <link rel="stylesheet" href="CSS/jquery.jOrgChart.css"/>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
@@ -31,7 +32,7 @@
                             <li class="noactive"><a href="index.jsp"><span>Home</span></a></li>
                             <li class="noactive"><a href="consultarCurso.jsp"><span>Pre y post</span></a></li>
                             <li class="active"><a href="horario"><span>Horarios</span></a></li>
-                            <li class="has-sub"><a href="#"><span>Pensum</span></a></li>
+                            <li class="has-sub"><a href="pensum.jsp"><span>Pensum</span></a></li>
                             <li "last"><a href="contact.html"><span>Contacto</span></a></li>
                             <div class="clear"></div>
                         </ul>
@@ -48,7 +49,9 @@
                             <h2 class="style"> Mi horario </h2>
                                 ${requestScope['horario']}
                                 </br>
-                                Total de traslapes: ${requestScope['traslapes']}
+                                Total de traslapes: ${requestScope['totaTraslapes']}
+                                </br>
+                                ${requestScope['traslapes']}
                         </div>
                     </div>
                 </div>

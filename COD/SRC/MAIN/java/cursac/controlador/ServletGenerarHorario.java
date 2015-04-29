@@ -74,7 +74,8 @@ public class ServletGenerarHorario extends HttpServlet {
                 rd = request.getRequestDispatcher("/verHorario.jsp");
 
                 request.setAttribute("horario", traslapes.graficaHorario());
-                request.setAttribute("traslapes", traslapes.totalTraslapes());
+                request.setAttribute("totaTraslapes", traslapes.totalTraslapes());
+                request.setAttribute("traslapes", traslapes.detalleTraslapes());
                 rd.forward(request, response);
             }
 

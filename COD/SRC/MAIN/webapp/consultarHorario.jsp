@@ -24,7 +24,7 @@
                             <li><a href="index.jsp"><span>Home</span></a></li>
                             <li><a href="consultarCurso.jsp"><span>Pre y post</span></a></li>
                             <li class="active"><a href="#"><span>Horarios</span></a></li>
-                            <li><a href="#"><span>Pensum</span></a></li>
+                            <li><a href="pensum.jsp"><span>Pensum</span></a></li>
                             <li><a href="#"><span>Contacto</span></a></li>
                             <div class="clear"></div>
                         </ul>

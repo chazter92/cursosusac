@@ -41,7 +41,7 @@
                             <li class="active"><a href="index.jsp"><span>Home</span></a></li>
                             <li id="lblprepost" name="lblprepost"><a href="consultarCurso.jsp"><span>Pre y post</span></a></li>
                             <li><a href="horario"><span>Horarios</span></a></li>
-                            <li><a href="#"><span>Pensum</span></a></li>
+                            <li><a href="pensum.jsp"><span>Pensum</span></a></li>
                             <li><a href="#"><span>Contacto</span></a></li>
 
                         </ul>
