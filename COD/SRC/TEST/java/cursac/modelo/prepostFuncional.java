@@ -12,13 +12,13 @@ import org.junit.Test;
 
 /**
  *
- * @author RITA
+ * @author Mario Rodas
  */
-public class prepostFuncional extends SeleneseTestBase {
+public class PrePostFuncional extends SeleneseTestBase {
     
     @Before
     public void beforeClass() {
-        selenium = new DefaultSelenium("localhost", 4444, "*firefox", "http://localhost:8091");
+        selenium = new DefaultSelenium("localhost", 4444, "*firefox", "http://localhost:8098");
         selenium.start();
     }
     
