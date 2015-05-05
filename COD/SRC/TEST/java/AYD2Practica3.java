@@ -3,8 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cursac.modelo;
-
 import com.thoughtworks.selenium.DefaultSelenium;
 import com.thoughtworks.selenium.SeleneseTestBase;
 import org.junit.Before;
@@ -14,7 +12,7 @@ import org.junit.Test;
  *
  * @author Mario Rodas
  */
-public class PrePostFuncional extends SeleneseTestBase {
+public class AYD2Practica3 extends SeleneseTestBase {
     
     @Before
     public void beforeClass() {
@@ -24,7 +22,11 @@ public class PrePostFuncional extends SeleneseTestBase {
     
     @Test
     public void testSimple() throws Exception {
-        selenium.open("/cursac");
+        selenium.open("/cursac/consultarCurso.jsp");
+        selenium.waitForPageToLoad("50000");
+        selenium.type("id=txtCodigo", "101");
+        selenium.click("id=btnPrePost");
+        selenium.waitForPageToLoad("50000");
     }
     
 }

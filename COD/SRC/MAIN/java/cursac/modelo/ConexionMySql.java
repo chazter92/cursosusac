@@ -19,12 +19,13 @@ import javax.sql.rowset.CachedRowSet;
  */
 public class ConexionMySql {
 
-    String dbUrl = "jdbc:mysql://localhost:3306/cursac";
-    String dbClass = "com.mysql.jdbc.Driver";
-    String username = "root";
-    String password = "admin123";
 
     public CachedRowSet query(String query, Object[] datos, Object[] tipos) {
+
+        String dbUrl = "jdbc:mysql://localhost:3306/cursac";
+        String dbClass = "com.mysql.jdbc.Driver";
+        String username = "root";
+        String password = "Admin123";
 
         try {
 
