@@ -1,0 +1,13 @@
+Presentacion 
+* 30 min
+1.  Resumen de la funcionalidad (que hace la app)
+    Resumen de requerimientos no funcionales (priorizados)
+2.	Explicación detallada de cómo cumple el diseño los requerimientos 
+	no funcionales (el tiempo de respuesta es de tanto ¿como lo hacemos 
+	a traves del diseño? partir los tiempos de respuesta por ejemplo y como lo hacemos)
+3.  Explicación detallada de que pasa en cada transacción
+4.	Demo corto de la funcionalidad de la aplicación
+5.	Conclusiones propoceso de arquitectura (creemos que el proceso para realizar la 
+	arquitectura es: paso1, paso2, paso3 y el resultado es)
+6.	Conclusiones de integración continua (es beneficioso? lo aplicaria? como lo aplicaria? 
+	como aprovechar la integración continua? que dificultades hay en una organización?)

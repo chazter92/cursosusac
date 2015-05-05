@@ -19,17 +19,19 @@ import javax.sql.rowset.CachedRowSet;
  */
 public class ConexionMySql {
 
+    String dbUrl = "jdbc:mysql://localhost:3306/cursac";
+    String dbClass = "com.mysql.jdbc.Driver";
+    String username = "root";
+    String password = "admin123";
+
     public CachedRowSet query(String query, Object[] datos, Object[] tipos) {
-        String dbUrl = "jdbc:mysql://localhost:3306/cursac";
-        String dbClass = "com.mysql.jdbc.Driver";
-        String username = "root";
-        String password = "admin123";
+
         try {
 
             Class.forName(dbClass);
             Connection connection = DriverManager.getConnection(dbUrl,
                     username, password);
-            
+
             PreparedStatement ps = connection.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
 
@@ -57,12 +59,12 @@ public class ConexionMySql {
                         ps.setDouble(i + 1, Double.parseDouble(datos[i].toString()));
                     } else if (clase.equalsIgnoreCase("Boolean")) {
                         ps.setBoolean(i + 1, Boolean.parseBoolean(datos[i].toString()));
-                    }else{
+                    } else {
                         ps.setString(i + 1, datos[i].toString());
                     }
                 }
             }
-
+            Long inicio = System.currentTimeMillis();
             ResultSet rs = ps.executeQuery();
 
             CachedRowSet crs = new CachedRowSetImpl();
@@ -71,15 +73,14 @@ public class ConexionMySql {
             rs.close();
             ps.close();
             connection.close();
-
+            System.out.println(System.currentTimeMillis() - inicio);
             return crs;
 
-            
         } catch (ClassNotFoundException e) {
             System.out.println(e.getMessage());
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-       return null;
+        return null;
     }
 }

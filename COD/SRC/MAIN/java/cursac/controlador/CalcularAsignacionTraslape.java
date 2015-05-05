@@ -26,6 +26,7 @@ import java.util.HashMap;
  *
  * @author Chaz
  */
+
 public class CalcularAsignacionTraslape {
 
     private String[] cursos;
@@ -34,38 +35,6 @@ public class CalcularAsignacionTraslape {
     private HashMap<String, DboCurso> curso;
     private ArrayList<DboSeccion> secciones;
     private ArrayList<DboHorario> horarios;
-
-    public CalcularAsignacionTraslape(String[] cursos) {
-        this.cursos = cursos;
-    }
-
-    public ArrayList<DboAsignacionHorario> getAsginaciones() {
-        return asginaciones;
-    }
-
-    public void setAsginaciones(ArrayList<DboAsignacionHorario> asginaciones) {
-        this.asginaciones = asginaciones;
-    }
-
-    public ArrayList<DboAsignacionHorario> getTraslapes() {
-        return traslapes;
-    }
-
-    public void setTraslapes(ArrayList<DboAsignacionHorario> traslapes) {
-        this.traslapes = traslapes;
-    }
-
-    public boolean hayTraslape() {
-        return traslapes.size() > 0;
-    }
-
-    public int totalTraslapes() {
-        return traslapes.size();
-    }
-
-    public int totalAsignaciones() {
-        return asginaciones.size();
-    }
 
     public String graficaHorario() {
         DaoHorario daoHorario = new DaoHorario();
@@ -126,7 +95,7 @@ public class CalcularAsignacionTraslape {
             java.text.SimpleDateFormat formatear = new java.text.SimpleDateFormat("hh:mm");
             for (DboAsignacionHorario traslape : traslapes) {
                 devolver += "<tr><td>" + curso.get(String.valueOf(traslape.getCodigo())).getNombre() + " - " +  secciones.get(traslape.getId_seccion()-1).getSeccion() + "</td>"
-                        + "<td>" + dias.get(traslape.getId_dia()-1).getNombre() + "</td>"
+                        + "<td>" + dias.get(traslape.getId_dia()).getNombre() + "</td>"
                         + "<td>" + formatear.format(horarios.get(traslape.getId_horario()-1).getHoraInicio()) + "</td></tr>";
             }
 
@@ -164,5 +133,37 @@ public class CalcularAsignacionTraslape {
 
             empezar++;
         }
+    }
+    
+        public CalcularAsignacionTraslape(String[] cursos) {
+        this.cursos = cursos;
+    }
+
+    public ArrayList<DboAsignacionHorario> getAsginaciones() {
+        return asginaciones;
+    }
+
+    public void setAsginaciones(ArrayList<DboAsignacionHorario> asginaciones) {
+        this.asginaciones = asginaciones;
+    }
+
+    public ArrayList<DboAsignacionHorario> getTraslapes() {
+        return traslapes;
+    }
+
+    public void setTraslapes(ArrayList<DboAsignacionHorario> traslapes) {
+        this.traslapes = traslapes;
+    }
+
+    public boolean hayTraslape() {
+        return traslapes.size() > 0;
+    }
+
+    public int totalTraslapes() {
+        return traslapes.size();
+    }
+
+    public int totalAsignaciones() {
+        return asginaciones.size();
     }
 }
