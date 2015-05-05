@@ -20,10 +20,10 @@ import javax.sql.rowset.CachedRowSet;
 public class ConexionMySql {
 
     public CachedRowSet query(String query, Object[] datos, Object[] tipos) {
-        String dbUrl = "https://cursac-ayd2usac.rhcloud.com/phpmyadmin/#PMAURL-5:db_structure.php?db=cursac&table=&server=1&target=&token=726ac10705dca6f895d538a3183c8d9c";
+        String dbUrl = "jdbc:mysql://localhost:3306/cursac";
         String dbClass = "com.mysql.jdbc.Driver";
-        String username = "adminxpshY3v";
-        String password = "k1mCiT__2wSL";
+        String username = "root";
+        String password = "Admin123";
         try {
 
             Class.forName(dbClass);
