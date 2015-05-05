@@ -58,7 +58,7 @@ public class GraficaPrePost {
         return grafica;
     }
     
-    public String generarGraficaCopiado() {
+    /*public String generarGraficaCopiado() {
         DaoCurso connCurso = new DaoCurso();
         String grafica = "";
         grafica += "<ul id=\"org\" style=\"display:none\">\n"
@@ -93,7 +93,7 @@ public class GraficaPrePost {
                     + "Post Requisitos: NINGUNO";
         }
         return grafica;
-    }
+    }*/
 
     public String obtenerPrerequisitos() {
         DaoCurso connCurso = new DaoCurso();

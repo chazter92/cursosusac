@@ -62,12 +62,11 @@ public class ServletTodosCursos extends HttpServlet {
 
         RequestDispatcher rd = null;
         int id_periodo = 3;
-        DaoCurso connCurso = new DaoCurso();
-        DaoSeccion connSeccion = new DaoSeccion();
+        
         DaoAsignacionHorario connAsignacion = new DaoAsignacionHorario();
         
-        HashMap<String, DboCurso> cursos = connCurso.obtenerCursos();
-        ArrayList<DboSeccion> secciones = connSeccion.obtenerSecciones();
+        HashMap<String, DboCurso> cursos = ValoresStaticos.curso;
+        ArrayList<DboSeccion> secciones = ValoresStaticos.secciones;
         
         ArrayList<DboAsignacionHorario> cursoSeccion = connAsignacion.obtenerCursoSeccion(id_periodo);
         

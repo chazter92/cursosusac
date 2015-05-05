@@ -67,7 +67,7 @@ public class ServletGenerarHorario extends HttpServlet {
             HttpServletResponse response) throws ServletException, IOException, NullPointerException {
         RequestDispatcher rd = null;
         String[] cursos = request.getParameterValues("cursosTo[]");
-        //cursos = cursos[0].split(",");
+        cursos = cursos[0].split(",");
         if (cursos != null) {
             if (cursos.length > 0) {
                 CalcularAsignacionTraslape traslapes = new CalcularAsignacionTraslape(cursos);

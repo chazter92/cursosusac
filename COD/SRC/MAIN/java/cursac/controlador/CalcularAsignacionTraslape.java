@@ -35,14 +35,11 @@ public class CalcularAsignacionTraslape {
     private HashMap<String, DboCurso> curso;
     private ArrayList<DboSeccion> secciones;
     private ArrayList<DboHorario> horarios;
-
+    private ArrayList<DboEdificio> edificios;
+    private ArrayList<DboSalon> salones;
     public String graficaHorario() {
-        DaoHorario daoHorario = new DaoHorario();
-        horarios = daoHorario.obtenerHorarios();
-        DaoCurso connCurso = new DaoCurso();
-        DaoSeccion connSeccion = new DaoSeccion();
-        DaoEdificio connEdificio = new DaoEdificio();
-        DaoSalon connSalon = new DaoSalon();
+        
+        horarios = ValoresStaticos.horarios;
         DboAsignacionHorario[][] matrizAsignacion = new DboAsignacionHorario[7][17];
         int maxHorario = 0;
         int minHorario = 14;
@@ -56,10 +53,10 @@ public class CalcularAsignacionTraslape {
             }
         }
 
-        curso = connCurso.obtenerCursos();
-        secciones = connSeccion.obtenerSecciones();
-        ArrayList<DboEdificio> edificios = connEdificio.obtenerEdificios();
-        ArrayList<DboSalon> salones = connSalon.obtenerSalons();
+        curso = ValoresStaticos.curso;
+        secciones = ValoresStaticos.secciones;
+        edificios = ValoresStaticos.edificios;
+        salones = ValoresStaticos.salones;
 
         String devolver = "<div class=\"CSSTableGenerator\" ><table border=\"2\"><tr><th>Horario</th><th>Lunes</th>"
                 + "<th>Martes</th><th>Miercoles</th><th>Jueves</th>"
