@@ -45,8 +45,9 @@ public class CalcularAsignacionTraslapeTest {
     @Test
     public void testGraficaHorario() {
         System.out.println("graficaHorario");
-        CalcularAsignacionTraslape instance = null;
-        String expResult = "";
+        String[] cursos = {"101-1"};
+        CalcularAsignacionTraslape instance = new CalcularAsignacionTraslape(cursos);
+        String expResult = "<div class=\"CSSTableGenerator\" ><table border=\"2\"><tr><th>Horario</th><th>Lunes</th><th>Martes</th><th>Miercoles</th><th>Jueves</th><th>Viernes</th><th>Sabado</th><th>Domingo</th></tr><tr><td>07:10</td><td></td><td>AREA MATEMATICA BASICA 1</br>Sección: A</br>T-3   104</td><td>AREA MATEMATICA BASICA 1</br>Sección: A</br>T-3   104</td><td>AREA MATEMATICA BASICA 1</br>Sección: A</br>T-3   104</td><td></td><td>AREA MATEMATICA BASICA 1</br>Sección: A</br>T-3   104</td><td></td></tr><tr><td>08:00</td><td></td><td>AREA MATEMATICA BASICA 1</br>Sección: A</br>T-3   104</td><td>AREA MATEMATICA BASICA 1</br>Sección: A</br>T-3   104</td><td>AREA MATEMATICA BASICA 1</br>Sección: A</br>T-3   104</td><td></td><td>AREA MATEMATICA BASICA 1</br>Sección: A</br>T-3   104</td><td></td></tr></table></div>";
         String result = instance.graficaHorario();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -59,7 +60,8 @@ public class CalcularAsignacionTraslapeTest {
     @Test
     public void testDetalleTraslapes() {
         System.out.println("detalleTraslapes");
-        CalcularAsignacionTraslape instance = null;
+        String[] cursos = {"101-1"};
+        CalcularAsignacionTraslape instance = new CalcularAsignacionTraslape(cursos);
         String expResult = "";
         String result = instance.detalleTraslapes();
         assertEquals(expResult, result);
@@ -73,62 +75,10 @@ public class CalcularAsignacionTraslapeTest {
     @Test
     public void testCalcularAsignacionTraslape() {
         System.out.println("calcularAsignacionTraslape");
-        CalcularAsignacionTraslape instance = null;
+        
+        String[] cursos = {"101-1"};
+        CalcularAsignacionTraslape instance = new CalcularAsignacionTraslape(cursos);
         instance.calcularAsignacionTraslape();
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getAsginaciones method, of class CalcularAsignacionTraslape.
-     */
-    @Test
-    public void testGetAsginaciones() {
-        System.out.println("getAsginaciones");
-        CalcularAsignacionTraslape instance = null;
-        ArrayList<DboAsignacionHorario> expResult = null;
-        ArrayList<DboAsignacionHorario> result = instance.getAsginaciones();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setAsginaciones method, of class CalcularAsignacionTraslape.
-     */
-    @Test
-    public void testSetAsginaciones() {
-        System.out.println("setAsginaciones");
-        ArrayList<DboAsignacionHorario> asginaciones = null;
-        CalcularAsignacionTraslape instance = null;
-        instance.setAsginaciones(asginaciones);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getTraslapes method, of class CalcularAsignacionTraslape.
-     */
-    @Test
-    public void testGetTraslapes() {
-        System.out.println("getTraslapes");
-        CalcularAsignacionTraslape instance = null;
-        ArrayList<DboAsignacionHorario> expResult = null;
-        ArrayList<DboAsignacionHorario> result = instance.getTraslapes();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setTraslapes method, of class CalcularAsignacionTraslape.
-     */
-    @Test
-    public void testSetTraslapes() {
-        System.out.println("setTraslapes");
-        ArrayList<DboAsignacionHorario> traslapes = null;
-        CalcularAsignacionTraslape instance = null;
-        instance.setTraslapes(traslapes);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -139,7 +89,8 @@ public class CalcularAsignacionTraslapeTest {
     @Test
     public void testHayTraslape() {
         System.out.println("hayTraslape");
-        CalcularAsignacionTraslape instance = null;
+        String[] cursos = {"101-1"};
+        CalcularAsignacionTraslape instance = new CalcularAsignacionTraslape(cursos);
         boolean expResult = false;
         boolean result = instance.hayTraslape();
         assertEquals(expResult, result);
@@ -153,7 +104,8 @@ public class CalcularAsignacionTraslapeTest {
     @Test
     public void testTotalTraslapes() {
         System.out.println("totalTraslapes");
-        CalcularAsignacionTraslape instance = null;
+        String[] cursos = {"101-1"};
+        CalcularAsignacionTraslape instance = new CalcularAsignacionTraslape(cursos);
         int expResult = 0;
         int result = instance.totalTraslapes();
         assertEquals(expResult, result);
@@ -167,8 +119,9 @@ public class CalcularAsignacionTraslapeTest {
     @Test
     public void testTotalAsignaciones() {
         System.out.println("totalAsignaciones");
-        CalcularAsignacionTraslape instance = null;
-        int expResult = 0;
+        String[] cursos = {"101-1"};
+        CalcularAsignacionTraslape instance = new CalcularAsignacionTraslape(cursos);
+        int expResult = 8;
         int result = instance.totalAsignaciones();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
